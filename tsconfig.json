@@ -7,9 +7,13 @@
     "strict": true,
     "strictNullChecks": true,
     "noImplicitAny": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "types": ["jest"]
   },
   "exclude": [
-    "node_modules"
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "tests"
   ],
 }
