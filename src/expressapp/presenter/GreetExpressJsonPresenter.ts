@@ -9,6 +9,6 @@ export default class GreetExpressJsonPresenter implements GreetPresenter {
     }
 
     present(message: string) {
-        this.response.send(JSON.stringify({message: message}))
+        this.response.json({message: message})
     }
 }

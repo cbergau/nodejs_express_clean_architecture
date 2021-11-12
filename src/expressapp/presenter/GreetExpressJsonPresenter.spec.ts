@@ -8,7 +8,7 @@ describe("Present Greeting via Express in JSON format", () => {
         it("should send contents and 200 status code", () => {
             let responseObject = {};
             const mockResponse: Partial<Response> = {
-                send: jest.fn().mockImplementation((result) => {
+                json: jest.fn().mockImplementation((result) => {
                     responseObject = result;
                 })
             };
@@ -17,7 +17,7 @@ describe("Present Greeting via Express in JSON format", () => {
 
             presenter.present(message)
 
-            expect(responseObject).toEqual(JSON.stringify({message: message}))
+            expect(responseObject).toEqual({message: message})
         })
     })
 })
