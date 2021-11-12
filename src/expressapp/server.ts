@@ -5,6 +5,7 @@ import GreetExpressJsonPresenter from "./presenter/GreetExpressJsonPresenter";
 
 const app: express.Application = express();
 const port = 8080;
+app.disable("x-powered-by")
 
 app.get("/", (req: Request, res: Response) => {
     const presenter = new GreetExpressJsonPresenter(res)
