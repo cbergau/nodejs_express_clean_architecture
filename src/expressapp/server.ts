@@ -7,10 +7,10 @@ const app: express.Application = express();
 const port = 8080;
 app.disable("x-powered-by")
 
-app.get("/", async (req: Request, res: Response) => {
+app.get("/:name", async (req: Request, res: Response) => {
     const presenter = new GreetExpressJsonPresenter(res)
     const usecase = new GreetUseCase(presenter)
-    const request = new GreetRequest("Christian Bergau")
+    const request = new GreetRequest(req.params.name)
 
     usecase.execute(request)
 });
