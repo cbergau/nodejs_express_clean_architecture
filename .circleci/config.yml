@@ -17,4 +17,4 @@ jobs:
             - /home/circleci/.npm
       - run:
           name: Run Tests
-          command: npm test:unit:coverage
+          command: npm run test:unit:coverage
