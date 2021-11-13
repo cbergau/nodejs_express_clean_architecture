@@ -34,4 +34,3 @@ jobs:
             -Dsonar.projectKey=nodejs_express_clean_architecture
             -Dsonar.organization=cbergau
             -Dsonar.testExecutionReportPaths=test-report.xml
-            -Dsonar.branch.name=main
