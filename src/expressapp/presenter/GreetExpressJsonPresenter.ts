@@ -11,4 +11,8 @@ export default class GreetExpressJsonPresenter implements GreetPresenter {
     present(message: string) {
         this.response.json({message: message})
     }
+
+    presentValidationErrors(errors: Map<string, Array<string>>): void {
+        this.response.status(400).send(JSON.stringify(Array.from(errors.entries())))
+    }
 }
