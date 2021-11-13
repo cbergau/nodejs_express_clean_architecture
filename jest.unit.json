@@ -5,6 +5,5 @@
     "**/?(*.)+(spec).ts?(x)"
   ],
   "resetMocks": true,
-  "clearMocks": true,
-  "testResultsProcessor": "jest-sonar-reporter"
+  "clearMocks": true
 }
