@@ -5,5 +5,9 @@
     "**/?(*.)+(spec).ts?(x)"
   ],
   "resetMocks": true,
-  "clearMocks": true
+  "clearMocks": true,
+  "reporters": [
+    "default",
+    "jest-junit"
+  ]
 }
