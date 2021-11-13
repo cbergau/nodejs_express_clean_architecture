@@ -30,6 +30,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
+            -X
             -Dsonar.projectKey=nodejs_express_clean_architecture
             -Dsonar.organization=cbergau
             -Dsonar.testExecutionReportPaths=test-report.xml
