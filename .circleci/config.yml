@@ -22,3 +22,6 @@ jobs:
           path: junit.xml
       - store_artifacts:
           path: coverage
+      - codecov/upload:
+          token: a03e1ca3-6591-4a0d-a9ae-19694ad4d696
+          file: coverage/clover.xml
