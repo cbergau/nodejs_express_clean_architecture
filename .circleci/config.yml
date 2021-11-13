@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/redux-async
+    working_directory: ~/nodejs_express_clean_architecture
     docker:
       - image: circleci/node:latest
     steps:
