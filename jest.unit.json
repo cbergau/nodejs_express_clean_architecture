@@ -1,6 +1,5 @@
 {
   "preset": "ts-jest",
-  "coverageDirectory": "coverage",
   "testMatch": [
     "**/?(*.)+(spec).ts?(x)"
   ],
@@ -9,5 +8,9 @@
   "reporters": [
     "default",
     "jest-junit"
+  ],
+  "coverageDirectory": "coverage",
+  "collectCoverageFrom": [
+    "src/**/*.ts"
   ]
 }
