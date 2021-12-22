@@ -8,7 +8,7 @@ export const app: express.Application = express();
 const port = 8080;
 app.disable("x-powered-by")
 
-app.get("/:name", async (req: Request, res: Response) => {
+app.get("/:name", (req: Request, res: Response) => {
     const presenter = new GreetExpressJsonPresenter(res)
     const validator = new GreetRequestValidator()
     const usecase = new GreetUseCase(presenter, validator)
@@ -17,7 +17,4 @@ app.get("/:name", async (req: Request, res: Response) => {
     usecase.execute(request)
 });
 
-app.listen(port, () => {
-    // tslint:disable-next-line:no-console
-    console.log(`server started at http://localhost:${port}`);
-});
+app.listen(port);
