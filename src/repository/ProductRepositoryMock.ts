@@ -1,5 +1,5 @@
-import ProductRepository from "../../repository/ProductRepository";
-import Product from "../../entity/Product";
+import ProductRepository from "./ProductRepository";
+import Product from "../entity/Product";
 
 export default class ProductRepositoryMock implements ProductRepository {
     public readonly mockId: Number = 1

@@ -1,6 +1,6 @@
 import CreateProductUseCase from "./CreateProductUseCase";
 import CreateProductPresenter from "./CreateProductPresenter";
-import ProductRepositoryMock from "./ProductRepositoryMock";
+import ProductRepositoryMock from "../../repository/ProductRepositoryMock";
 
 test("Should present created product", async () => {
     let idCalled: Number = 0
