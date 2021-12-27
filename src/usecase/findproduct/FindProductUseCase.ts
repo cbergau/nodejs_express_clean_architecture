@@ -10,7 +10,7 @@ export default class FindProductUseCase {
         this.repository = repository
     }
 
-    public async execute(id: Number): Promise<void> {
+    public async execute(id: Number) {
         const product = await this.repository.findById(id)
         this.presenter.present(product.id, product.name)
     }
