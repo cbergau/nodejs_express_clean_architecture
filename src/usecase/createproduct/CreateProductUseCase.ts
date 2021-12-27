@@ -3,8 +3,8 @@ import ProductRepository from "../../repository/ProductRepository";
 import Product from "../../entity/Product";
 
 export default class CreateProductUseCase {
-    private presenter: CreateProductPresenter
-    private repository: ProductRepository
+    private readonly presenter: CreateProductPresenter
+    private readonly repository: ProductRepository
 
     constructor(presenter: CreateProductPresenter, repository: ProductRepository) {
         this.presenter = presenter;
