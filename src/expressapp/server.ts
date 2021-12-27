@@ -1,20 +1,26 @@
 import express, {Request, Response} from 'express';
-import GreetUseCase from "./../usecase/greet/GreetUseCase";
-import GreetRequest from "./../usecase/greet/GreetRequest";
-import GreetExpressJsonPresenter from "./presenter/GreetExpressJsonPresenter";
-import GreetRequestValidator from "../usecase/greet/GreetRequestValidator";
+import PostgresProductRepository from "../repository/PostgresProductRepository";
+import FindProductJsonPresenter from "./presenter/FindProductJsonPresenter";
+import FindProductUseCase from "../usecase/findproduct/FindProductUseCase";
+import CreateProductUseCase from "../usecase/createproduct/CreateProductUseCase";
+import CreateProductJsonPresenter from "./presenter/CreateProductJsonPresenter";
 
-export const app: express.Application = express();
-const port = 8080;
+export const app = express();
 app.disable("x-powered-by")
+app.use(express.json())
 
-app.get("/:name", (req: Request, res: Response) => {
-    const presenter = new GreetExpressJsonPresenter(res)
-    const validator = new GreetRequestValidator()
-    const usecase = new GreetUseCase(presenter, validator)
-    const request = new GreetRequest(req.params.name)
+app.get("/products/:id", async (request: Request, response: Response) => {
+    const repository = new PostgresProductRepository()
+    const presenter = new FindProductJsonPresenter(response)
+    const usecase = new FindProductUseCase(presenter, repository)
+    await usecase.execute(parseInt(request.params.id))
+})
 
-    usecase.execute(request)
-});
+app.post("/products", async (request: Request, response: Response) => {
+    const repository = new PostgresProductRepository()
+    const presenter = new CreateProductJsonPresenter(response)
+    const usecase = new CreateProductUseCase(presenter, repository)
+    await usecase.execute(request.body.name)
+})
 
-app.listen(port);
+app.listen(8080);
