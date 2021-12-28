@@ -11,6 +11,9 @@ jobs:
       - restore_cache:
           key: npm-cache-v1-{{ checksum "package-lock.json" }}
       - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+      - run:
           name: Install Dependencies
           command: npm ci
       - save_cache:
