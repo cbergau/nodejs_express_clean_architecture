@@ -16,6 +16,9 @@ jobs:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
       - run:
+          name: debug
+          command: cat ~/repo/.npmrc
+      - run:
           name: Install Dependencies
           command: npm ci
       - save_cache:
