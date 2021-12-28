@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
       - restore_cache:
           key: npm-cache-v1-{{ checksum "package-lock.json" }}
       - run:
