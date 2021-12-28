@@ -10,14 +10,9 @@ jobs:
       - checkout
       - restore_cache:
           key: npm-cache-v1-{{ checksum "package-lock.json" }}
-      - attach_workspace:
-          at: ~/repo
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
-      - run:
-          name: debug
-          command: cat ~/repo/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
           name: Install Dependencies
           command: npm install
