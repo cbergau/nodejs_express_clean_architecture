@@ -3,14 +3,8 @@ import CreateProductPresenter from "./CreateProductPresenter";
 import ProductRepositoryMock from "../../repository/ProductRepositoryMock";
 
 test("Should present created product", async () => {
-    let idCalled: Number = 0
-    let nameCalled: String = ''
-
-    const presenter = <CreateProductPresenter>{
-        present(id: Number, name: String) {
-            idCalled = id
-            nameCalled = name
-        }
+    let presenter: CreateProductPresenter = {
+        present: jest.fn()
     }
 
     const repository = new ProductRepositoryMock()
@@ -18,6 +12,6 @@ test("Should present created product", async () => {
 
     await usecase.execute("test")
 
-    expect(idCalled).toBe(repository.mockId)
-    expect(nameCalled).toBe("test")
+    expect(presenter.present).toHaveBeenCalledWith(repository.mockId, "test")
+    expect(presenter.present).toHaveBeenCalledTimes(1)
 })
