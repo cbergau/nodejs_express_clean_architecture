@@ -14,7 +14,7 @@ test("Should present created product", async () => {
     }
 
     const repository = new ProductRepositoryMock()
-    const usecase = new CreateProductUseCase(presenter as CreateProductPresenter, repository)
+    const usecase = new CreateProductUseCase(presenter, repository)
 
     await usecase.execute("test")
 
