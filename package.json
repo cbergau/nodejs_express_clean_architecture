@@ -6,6 +6,7 @@
   "scripts": {
     "serve": "nodemon src/expressapp/server.ts",
     "build": "tsc --project ./tsconfig.json",
+    "prof": "NODE_ENV=production node --prof dist/src/expressapp/server.js",
     "test:unit": "jest -c ./jest.unit.json",
     "test:unit:coverage": "jest --coverage -c ./jest.unit.json"
   },
