@@ -18,7 +18,7 @@ export default class CreateProductUseCase {
         try {
             await this.repository.create(product)
         } catch (error) {
-            console.error(`Error creating product. Error: ${error}`)
+            console.error(`Error creating product. ${error}`)
             this.presenter.error(`Could not create product`)
             return
         }

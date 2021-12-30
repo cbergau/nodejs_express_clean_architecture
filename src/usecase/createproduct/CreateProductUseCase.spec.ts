@@ -27,6 +27,8 @@ test("Should present created product", async () => {
 })
 
 test("Should present error when creating product failed", async () => {
+    console.error = jest.fn()
+
     const presenter: CreateProductPresenter = {
         present: jest.fn(),
         error: jest.fn()
@@ -42,6 +44,8 @@ test("Should present error when creating product failed", async () => {
 
     await usecase.execute("test")
 
+    expect(console.error).toHaveBeenCalledTimes(1)
+    expect(console.error).toHaveBeenCalledWith("Error creating product. Error: error string")
     expect(presenter.present).toHaveBeenCalledTimes(0)
     expect(presenter.error).toHaveBeenCalledTimes(1)
     expect(presenter.error).toHaveBeenCalledWith("Could not create product")
