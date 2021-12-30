@@ -11,4 +11,8 @@ export default class CreateProductJsonPresenter implements CreateProductPresente
     present(id: Number, name: String): void {
         this.response.status(201).json({id, name})
     }
+
+    error(error: String): void {
+        this.response.status(500).json({error})
+    }
 }
